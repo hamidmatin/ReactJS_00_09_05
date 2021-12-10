@@ -14,14 +14,20 @@ import './App.css';
 // import Course from './react-module/my-module';
 import Course, { myFucntion, teacher } from './react-module/my-module';
 import CRS from './react-module/my-module';
-import { teacher as reactTeacher, myFucntion as fn, default as MyCourse } from './react-module/my-module'
+import {
+  teacher as reactTeacher,
+  myFucntion as fn,
+  default as MyCourse,
+} from './react-module/my-module';
+import * as myConstant from './react-module/my_constant';
 
-import * as myConstant from './react-module/my_constant'
+/************* */
+import { FunctionComponent1, FunctionComponent2 } from './react-component/function-component';
 
 function App() {
   myFucntion();
-  fn()
-  console.log(myConstant)
+  fn();
+  console.log(myConstant);
 
   const course = new Course('React JS', '40');
   const myCourse = new CRS('React JS', '40');
@@ -39,20 +45,25 @@ function App() {
       <p>{myConstant.SESSION_COUNT}</p>
       <p>{myConstant.START_DATE}</p>
       <p>{myConstant.default}</p>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
+      <hr />
+
+      <FunctionComponent1 />
+      <FunctionComponent1 />
+      <hr />
+      <FunctionComponent2 message='Hello React' sessionNumber='3' />
+      <FunctionComponent2 
+          message='Hello React' 
+          sessionNumber='3' 
+          style={{backgroundColor: 'hotpink', color: 'white'}}>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium, totam facilis quasi
+          autem ipsa ab labore soluta, unde magni aliquam sit architecto minus possimus quod
+          repellendus earum delectus. Harum, repellat!
         </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+      </FunctionComponent2>
+      <FunctionComponent2 message="skdsjgdj" sessionNumber={5}>
+        <h3>kjsdgkdsg</h3>
+      </FunctionComponent2>
     </div>
   );
 }
