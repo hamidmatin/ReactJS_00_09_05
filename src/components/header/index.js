@@ -1,15 +1,18 @@
 import React from 'react'
-import './header.css'
+import { NavLink } from 'react-router-dom'
+import styles from './header.module.css'
 
 export const Header = () => {
+  console.log(styles)
   return (
     <header>
-      <nav>
+      <nav className={styles['nav']}>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Page 1</a></li>
-          <li><a href="#">Page 2</a></li>
-          <li><a href="#">Page 3</a></li>
+          <li><NavLink to="/">Home</NavLink></li>
+          <li><NavLink to="/use-fc">Use Fucntion Component</NavLink></li>
+          <li><NavLink to="/use-cc">Use Class Component</NavLink></li>
+          <li><NavLink to="/users">Users</NavLink></li>
+          
         </ul>
       </nav>
     </header>

@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container, .container-fluid{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media screen and (min-width: 576px) {
+  .container{ max-width: 550px;}
+}
+@media screen and (min-width: 768px) {
+  .container{ max-width: 750px;}
+}
+@media screen and (min-width: 992px) {
+  .container{ max-width: 950px;}
+}
+@media screen and (min-width: 1200px) {
+  .container{ max-width: 1150px;}
+}
+
+.active{
+  background-color: red;
+}

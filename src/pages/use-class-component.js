@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BasePage } from '../components/base-page';
 import { ClassComponent, ClassComponentWithState } from '../react-component/class-component';
 import ClassComponentLifecycle from '../react-component/class-component-lifecycle';
 
@@ -14,7 +15,7 @@ export class UseClassComponentPage extends Component {
 
   render() {
     return (
-      <div>
+      <BasePage title='Use Class Component'>
         {/* <ClassComponent /> */}
         {/* <ClassComponent sessionNumber={4} message='Hello react class component' /> */}
         {/* <ClassComponent sessionNumber={4} message='Hello react class component'>
@@ -40,7 +41,7 @@ export class UseClassComponentPage extends Component {
         {this.state.isVisible && (
           <ClassComponentLifecycle message={this.state.message} />
         )}
-      </div>
+      </BasePage>
     );
   }
 }

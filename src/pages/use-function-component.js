@@ -1,9 +1,10 @@
 import React from 'react'
+import { BasePage } from '../components/base-page'
 import { FunctionComponent1, FunctionComponent2 } from '../react-component/function-component'
 
 export const UseFunctionComponentPage = () => {
   return (
-    <div>
+    <BasePage title='Use Function Component'>
       <FunctionComponent1 />
       <FunctionComponent1 />
       <hr />
@@ -22,6 +23,6 @@ export const UseFunctionComponentPage = () => {
       <FunctionComponent2 message='skdsjgdj' sessionNumber={3}>
         <h3>kjsdgkdsg</h3>
       </FunctionComponent2>
-    </div>
+    </BasePage>
   )
 }

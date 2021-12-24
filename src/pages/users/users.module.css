@@ -1,0 +1,61 @@
+.users-table{
+  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.582);
+}
+.table-row{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 150px;
+  column-gap: 5px;
+}
+.table-row:not(:last-child){
+  border-bottom: 2px solid #e7e7e7;
+}
+.table-row:not(:first-child):hover{
+  background-color: #f1f1f1;
+}
+.title{
+  text-align: center;
+  color: white;
+  background-color: #555;
+}
+.data, .action{
+  padding: .5em 1em;
+}
+.empty-table{
+  text-align: center;
+  font-style: italic;
+  font-size: 1.5em;
+  padding: 2em 0;
+}
+.action{
+  display: flex;
+  justify-content: center;
+}
+.icon-button{
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 5px 8px;
+  font-size: 75%;
+}
+.icon-button:hover{
+  background-color: #e2e2e2;
+}
+.icon-button + .icon-button{
+  margin-left: 5px;
+}
+
+.add-panel{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.add-panel button{
+  cursor: pointer;
+  background-color: #555;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+}
