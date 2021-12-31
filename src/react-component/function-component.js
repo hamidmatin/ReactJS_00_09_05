@@ -62,7 +62,7 @@ export const FunctionComponent1 = () => {
 //   );
 // };
 
-export const FunctionComponent2 = ({ style, message, sessionNumber, children }) => {
+export const  FunctionComponent2 = ({ style, message, sessionNumber, children }) => {
   
   const myStyle = {
     backgroundColor: '#f1f1f1',

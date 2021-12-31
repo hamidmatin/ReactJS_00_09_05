@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './users.module.css';
 
 export default class UserTable extends Component {
@@ -23,9 +24,9 @@ export default class UserTable extends Component {
                 <button className={styles['icon-button']} onClick={()=>{onDelete(user.id)}}>
                   <span className='material-icons'>delete</span>
                 </button>
-                <button className={styles['icon-button']}>
+                <Link to={`edit/${user.id}`} className={styles['icon-button']}>
                   <span className='material-icons'>edit</span>
-                </button>
+                </Link>
               </div>
             </div>
           ))
