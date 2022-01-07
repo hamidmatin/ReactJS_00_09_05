@@ -1,12 +1,30 @@
-import React, { Component } from 'react'
-import { BasePage } from '../../components/base-page'
+import React from 'react';
+import { BasePage } from '../../components/base-page';
+import logo from '../../logo.svg';
+import products from '../../data/product.json';
+import axios from 'axios';
+const HomePage = () => {
+  console.log(products)
+  
+  axios.get('/data/projects.json')
+  .then(result => {
+    console.log(result)
+  })
+  
+  return (
+    <BasePage title='Home'>
+      <p>This Home Page</p>
+      <img src={logo} alt='logo' width='100' />
+      <img src='/images/01.jpg' alt='sdsds' />
+      <hr />
+      {products.map((product, idx) => (
+        <div key={idx}>
+          <img src={product.image} alt="sds" />
+          <p>{product.name}</p>
+        </div>
+      ))}
+    </BasePage>
+  );
+};
 
-export default class HomePage extends Component {
-  render() {
-    return (
-      <BasePage title='Home'>
-        <p>This Home Page</p>
-      </BasePage>
-    )
-  }
-}
+export default HomePage;

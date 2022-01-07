@@ -1,0 +1,14 @@
+[
+  {
+    "project": "project1",
+    "image": "/images/front-page-project-1.jpg"
+  },
+  {
+    "project": "project2",
+    "image": "/images/front-page-project-2.jpg"
+  },
+  {
+    "project": "project3",
+    "image": "/images/front-page-project-3.jpg"
+  }
+]

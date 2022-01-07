@@ -1,53 +1,46 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import styles from './users.module.css';
 
-export default class UserForm extends Component {
-  constructor() {
-    super();
+const UserForm = ({ onSave, user }) => {
+  
+  const navigate = useNavigate()
 
-    this.state = {
-      userData: {
-        id: 0,
-        name: '',
-        username: '',
-        email: '',
-      },
-      isDirty: false
-    };
-  }
+  const [userData, setUserData] = useState({
+    id: 0,
+    name: '',
+    username: '',
+    email: '',
+  })
 
-  // nameChangeHandler = (e) => {
-  //   this.setState({ ...this.state, userData: { ...this.state.userData, name: e.target.value } });
-  // };
+  const [isDirty, setIsDirty] = useState(false)
 
-  // usernameChangeHandler = (e) => {
-  //   this.setState({ ...this.state, userData: { ...this.state.userData, username: e.target.value } });
-  // };
+  useEffect(()=>{
+    setUserData(user)
+  }, [user])
 
-  changeHandler = (e) => {
-    this.setState({
-      isDirty: true,
-      userData: { ...this.state.userData, [e.target.name]: e.target.value },
-    });
+  const changeHandler = (e) => {
+    if(userData){
+    setUserData({ ...userData, [e.target.name]: e.target.value })
+    setIsDirty(true)}
   };
 
-  onSubmitHandler = (e) => {
+  const onSubmitHandler = (e) => {
     e.preventDefault();
-    this.props.onSave(this.state.userData);
-    window.history.back();
+    onSave(userData);
   };
 
-  render() {
+  
     return (
-      <form className={styles['form-wrapper']} onSubmit={this.onSubmitHandler} noValidate>
+      <form className={styles['form-wrapper']} onSubmit={onSubmitHandler} noValidate>
         <div className={styles['form-container']}>
           <label htmlFor='name'>Name</label>
           <input
             type='text'
             id='name'
             name='name'
-            value={this.state.userData.name}
-            onChange={this.changeHandler}
+            value={userData.name}
+            onChange={changeHandler}
           />
 
           <label htmlFor='username'>User Name</label>
@@ -55,8 +48,8 @@ export default class UserForm extends Component {
             type='text'
             name='username'
             id='username'
-            value={this.state.userData.username}
-            onChange={this.changeHandler}
+            value={userData.username}
+            onChange={changeHandler}
           />
 
           <label htmlFor='email'>E-Mail</label>
@@ -64,8 +57,8 @@ export default class UserForm extends Component {
             type='email'
             name='email'
             id='email'
-            value={this.state.userData.email}
-            onChange={this.changeHandler}
+            value={userData.email}
+            onChange={changeHandler}
           />
 
           <div className={styles['button-wrapper']}>
@@ -73,12 +66,13 @@ export default class UserForm extends Component {
               type='button'
               className={styles['btn-close']}
               onClick={() => {
-                window.history.back();
+                // navigate(-1)
+                navigate('/users')
               }}
             >
               Close <i className='material-icons'>cancel</i>
             </button>
-            <button className={styles['btn-save']} disabled={!this.state.isDirty}>
+            <button className={styles['btn-save']} disabled={!isDirty}>
               Save
               <i className='material-icons'>save</i>
             </button>
@@ -87,4 +81,5 @@ export default class UserForm extends Component {
       </form>
     );
   }
-}
+
+  export default UserForm

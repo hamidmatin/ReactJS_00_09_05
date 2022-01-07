@@ -6,21 +6,7 @@ import styles from './users.module.css';
 import { Link } from 'react-router-dom';
 
 const UsersPageIndex = () => {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     userList: [],
-  //     isLoading: true,
-  //   };
-  // }
-
-  // componentDidMount() {
-  //   axios.get('https://jsonplaceholder.typicode.com/users').then((result) => {
-  //     // console.log(result);
-  //     this.setState({ userList: result.data, isLoading: false });
-  //   });
-  // }
-
+  
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/users').then((result) => {
       // console.log(result);
@@ -32,6 +18,7 @@ const UsersPageIndex = () => {
   const [userList, setUserList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  
   const deleteUserHandel = (id) => {
     /** Confirm **/
 
@@ -40,10 +27,6 @@ const UsersPageIndex = () => {
     axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`).then((result) => {
       setUserList(userList.filter((user) => user.id !== id))
       setIsLoading(false)
-      // this.setState({
-      //   isLoading: false,
-      //   userList: this.state.userList.filter((user) => user.id !== id),
-      // });
     });
   };
 
