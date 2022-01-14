@@ -4,6 +4,8 @@ import { BasePage } from '../../components/base-page';
 import UserTable from './user-table';
 import styles from './users.module.css';
 import { Link } from 'react-router-dom';
+import { withLoading } from '../../HOC/with-loading';
+import { fadeShow } from '../../HOC/fade-show';
 
 const UsersPageIndex = () => {
   
@@ -30,15 +32,18 @@ const UsersPageIndex = () => {
     });
   };
 
+  const BasePageWithLoading = withLoading(BasePage)
+  const UserTableFade = fadeShow(UserTable)
+
   return (
-    <BasePage title='Users' className='container' isLoading={isLoading}>
+    <BasePageWithLoading title='Users' className='container' isloadng={isLoading}>
       <div className={styles['add-panel']}>
         <Link to='/users/new'>
           <i className='material-icons'>add</i>
         </Link>
       </div>
-      <UserTable userList={userList} onDelete={deleteUserHandel} />
-    </BasePage>
+      <UserTableFade userList={userList} onDelete={deleteUserHandel} duration={3000} />
+    </BasePageWithLoading>
   );
 };
 
