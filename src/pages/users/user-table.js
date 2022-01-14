@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { userAddToListAction } from '../../redux/actions';
 import styles from './users.module.css';
 
 const UserTable = ({ userList, onDelete }) => {
+  const dispatch = useDispatch()
+
   return (
     <div className={styles['users-table']}>
       <div className={styles['table-row']}>
@@ -29,6 +33,11 @@ const UserTable = ({ userList, onDelete }) => {
               <Link to={`edit/${user.id}`} className={styles['icon-button']}>
                 <span className='material-icons'>edit</span>
               </Link>
+              <button className={styles['icon-button']} onClick={()=>{
+                dispatch(userAddToListAction(user))
+              }}>
+                <span className='material-icons'>add</span>
+              </button>
             </div>
           </div>
         ))

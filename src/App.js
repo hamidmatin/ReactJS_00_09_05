@@ -14,6 +14,8 @@ import { StoreIndexPage } from './pages/store';
 import { PrivateRoute } from './utils/private-route';
 import { LoginIndexPage } from './pages/login';
 import { LogoutPage } from './pages/login/logout';
+import { ReduxPageIndex } from './pages/redux';
+import { ContextPageIndex } from './pages/context';
 
 
 function App() {
@@ -29,6 +31,9 @@ function App() {
             <Route path='react-hook' element={<HookIndex />} />     
           </Route>
 
+          <Route path='redux' element={<ReduxPageIndex />}/>
+          <Route path='context' element={<ContextPageIndex />}/>
+          
           <Route path='users' element={<UsersPageIndex />}/>
           <Route path='users/new' element={<UserNewPage />}/>
           <Route path='users/edit/:id' element={<UserEditPage />} />
